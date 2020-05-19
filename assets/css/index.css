@@ -1,0 +1,57 @@
+/*字体头像*/
+.text-avatar {
+    width: 33px;
+    height: 33px;
+    margin-right: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #419488;
+    line-height: 33px;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 20px;
+}
+
+/*默认先让字体头像隐藏*/
+.text-avatar {
+    display: none;
+}
+
+/*跳转顶级菜单的图标位置*/
+.iconfont {
+    margin-right: 8px;
+    position: relative;
+    top: 1px;
+}
+
+/*调整子菜单的图标*/
+.layui-icon {
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+/*侧边栏头像和欢迎语*/
+.userinfo {
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+.welcome {
+    color: #fff;
+    font-size: 12px;
+    user-select: none;
+}
+
+/*iframe*/
+iframe {
+    width: 100%;
+    height: 100%;
+    background-color: #f2f3f5;
+}
+
+/*去掉iframe的滚动条  --   给父级的div加 overflow:hidden */
+.layui-body {
+    overflow: hidden;
+}

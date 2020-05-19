@@ -1,0 +1,15 @@
+.layui-card {
+    margin: 20px 20px 0 20px;
+}
+
+.layui-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*添加/编辑 弹出层的样式*/
+#addForm, #editForm {
+    margin-top: 24px;
+    width: 90%;
+}

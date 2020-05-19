@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章类别</title>
+    <!-- 加载第三方的 layui.css -->
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+    <!-- 加载自己的css -->
+    <link rel="stylesheet" href="/assets/css/article/category.css">
+    <!-- 加载jquery.js -->
+    <script src="/assets/lib/jquery.js"></script>
+    <!-- 加载layui.all.js -->
+    <script src="/assets/lib/layui/layui.all.js"></script>
+    <!-- 加载template-web.js -->
+    <script src="/assets/lib/template-web.js"></script>
+    <!-- 加载common.js -->
+    <script src="/assets/js/common.js"></script>
+    <!-- 加载自己的js -->
+    <script src="/assets/js/article/category.js"></script>
+</head>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">
+            文章类别管理
+            <button id="addBtn" type="button" class="layui-btn layui-btn-normal layui-btn-sm">添加类别</button>
+        </div>
+        <div class="layui-card-body">
+            <!-- 内容区 -- 表格 -->
+            <table class="layui-table">
+                <colgroup>
+                    <col width="38%">
+                    <col width="38%">
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>类别名称</th>
+                        <th>类别别名</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 这里放数据 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 定义 分类列表 模板 -->
+    <script type="text/html" id="list">
+        {{each data val}}
+        <tr>
+            <td>{{val.name}}</td>
+            <td>{{val.alias}}</td>
+            <td>
+                <button data-id="{{val.Id}}" data-name="{{val.name}}" data-alias="{{val.alias}}" type="button" class="layui-btn layui-btn-xs edit">编辑</button>
+                <button data-id="{{val.Id}}" type="button" class="layui-btn layui-btn-danger layui-btn-xs delete">删除</button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+
+    <!-- 定义添加类别弹层的模板 -->
+    <script type="text/html" id="add">
+        <form id="addForm" class="layui-form" action="">
+            <!-- 第一行 分类名称 -->
+            <div class="layui-form-item">
+              <label class="layui-form-label">分类名称</label>
+              <div class="layui-input-block">
+                <input type="text" name="name" required  lay-verify="required" placeholder="请输入分类名称" autocomplete="off" class="layui-input">
+              </div>
+            </div>
+            <!-- 第二行 分类别名 -->
+            <div class="layui-form-item">
+                <label class="layui-form-label">分类别名</label>
+                <div class="layui-input-block">
+                  <input type="text" name="alias" required  lay-verify="required" placeholder="请输入分类别名" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <!-- 第三行 按钮 -->
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">确认添加</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+    </script>
+
+    <!-- 定义编辑类别弹层的模板 -->
+    <script type="text/html" id="edit">
+        <form id="editForm" class="layui-form" action="" lay-filter="editForm">
+            <input type="hidden" name="id">
+            <!-- 第一行 分类名称 -->
+            <div class="layui-form-item">
+              <label class="layui-form-label">分类名称</label>
+              <div class="layui-input-block">
+                <input type="text" name="name" required  lay-verify="required" placeholder="请输入分类名称" autocomplete="off" class="layui-input">
+              </div>
+            </div>
+            <!-- 第二行 分类别名 -->
+            <div class="layui-form-item">
+                <label class="layui-form-label">分类别名</label>
+                <div class="layui-input-block">
+                  <input type="text" name="alias" required  lay-verify="required" placeholder="请输入分类别名" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <!-- 第三行 按钮 -->
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">确认修改</button>
+                </div>
+            </div>
+        </form>
+    </script>
+</body>
+
+</html>
